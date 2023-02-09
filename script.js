@@ -18,8 +18,18 @@ const handleScrollSpy = () => {
 				activeSection.classList.add('active');
 			}
 
-		
-	})
+			if (
+				window.innerHeight + window.scrollY >=
+				document.body.offsetHeight - 200
+			) {
+				const lastSection = document.querySelector('a:last-of-type');
+
+				menuItems.forEach((item) => item.classList.remove('active'));
+
+				lastSection.classList.add('active');
+			}
+		});
+	}
 };
 
-window.addEventListener('scroll', handleScrollSpy)
+window.addEventListener('scroll', handleScrollSpy);
